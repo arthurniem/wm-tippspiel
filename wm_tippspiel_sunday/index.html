@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Cup 2026 - Vaporwave Edition</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="lines">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    
+    <div class="window main-container">
+        <!-- ... rest of your content ... -->
+    <div class="window main-container">
+        <div class="title-bar">
+            <div class="title-bar-text">⚽ Official World Cup 2026 Prediction Game</div>
+        </div>
+        <div class="window-body">
+            
+            <!-- Player Name Input -->
+            <div style="margin-bottom: 15px; padding: 10px; border: 2px groove #dfdfdf; background: #e8f4f8;">
+                <label for="player-name" style="font-weight: bold; color: #000080;">Enter Your Name: </label>
+                <input type="text" id="player-name" placeholder="e.g., Gustav" style="padding: 3px; border: 2px inset;">
+            </div>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+            <div class="rules-box">
+                <h4>📜 Scoring Rules</h4>
+                <ul>
+                    <li><b>Group Stage:</b> Exact score (3 pts), Correct goal diff (2 pts), Correct result (Win/Draw/Loss) (1 pt).</li>
+                    <li><b>Knockout Stages (per correct team):</b> Round of 32 (2 pts), Round of 16 (3 pts), Quarter-Finals (5 pts), Semi-Finals (7 pts), Finalists (10 pts).</li>
+                    <li><b>Tournament Winners:</b> 3rd Place Winner (5 pts), World Champion (20 pts).</li>
+                </ul>
+            </div>
+
+            <div class="nav-tabs">
+                <button id="btn-group" class="active" onclick="switchTab('group')">Group Stage</button>
+                <button id="btn-knockout" onclick="switchTab('knockout')">Knockout Stage</button>
+            </div>
+
+            <!-- Group Stage Container -->
+            <div id="group-container" class="tab-content active">
+                <h3>Group Stage Predictions</h3>
+                <div id="groups-wrapper"></div>
+            </div>
+
+            <!-- Knockout Stage Container -->
+            <div id="knockout-container" class="tab-content">
+                <h3>Knockout Predictions</h3>
+                
+                <div class="ko-section">
+                    <h4>Round of 32 (Select 32 teams)</h4>
+                    <p class="status" id="ro32-status">Selected: 0/32 | Max 3 per group (8 groups max)</p>
+                    <div id="ro32-selection" class="ro-grid"></div>
+                </div>
+
+                <div class="ko-section">
+                    <h4>Round of 16 (Select 16)</h4>
+                    <p class="status" id="ro16-status">Selected: 0/16</p>
+                    <div id="ro16-selection" class="bucket"></div>
+                </div>
+
+                <div class="ko-section">
+                    <h4>Quarter-Finals (Select 8)</h4>
+                    <p class="status" id="qf-status">Selected: 0/8</p>
+                    <div id="qf-selection" class="bucket"></div>
+                </div>
+
+                <div class="ko-section">
+                    <h4>Semi-Finals (Select 4)</h4>
+                    <p class="status" id="sf-status">Selected: 0/4</p>
+                    <div id="sf-selection" class="bucket"></div>
+                </div>
+
+                <div class="ko-section">
+                    <h4>Final (Select 2) & 3rd Place</h4>
+                    <p class="status" id="final-status">Finalists: 0/2 | 3rd Place Match: 0/2</p>
+                    <div class="split-bucket">
+                        <div>
+                            <h5>Finalists</h5>
+                            <div id="final-selection" class="bucket"></div>
+                        </div>
+                        <div>
+                            <h5>3rd Place Match</h5>
+                            <div id="third-selection" class="bucket"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ko-section">
+                    <h4>Winner & 3rd Place Winner</h4>
+                    <div class="split-bucket">
+                        <div>
+                            <h5>World Champion 🏆</h5>
+                            <div id="winner-selection" class="bucket"></div>
+                        </div>
+                        <div>
+                            <h5>3rd Place 🥉</h5>
+                            <div id="third-winner-selection" class="bucket"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="submit-btn" onclick="submitData()">💾 Save & Send to Server</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
