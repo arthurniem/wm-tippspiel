@@ -340,6 +340,7 @@ function saveProgress() {
     
     let payload = {
         playerName: document.getElementById('player-name').value,
+        group: typeof GAME_GROUP !== 'undefined' ? GAME_GROUP : "Default",// <--- ADD THIS LINE
         groupScores,
         knockout: {
             ro32: Array.from(selectedTeams.ro32), ro16: Array.from(selectedTeams.ro16),
@@ -415,6 +416,7 @@ function submitData() {
 
     let payload = {
         playerName: playerName,
+        group: typeof GAME_GROUP !== 'undefined' ? GAME_GROUP : "Default", // <--- ADD THIS LINE
         groupScores,
         knockout: {
             ro32: Array.from(selectedTeams.ro32), ro16: Array.from(selectedTeams.ro16),
